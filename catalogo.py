@@ -1,31 +1,20 @@
-import pandas as pd
+import csv
 
-# Caminho do arquivo CSV (pode usar URL RAW ou caminho local)
-CSV_PATH = "https://raw.githubusercontent.com/RayanneMatos/catalogo-filmes-python/refs/heads/main/dados/movies_catalog_clean.csv"
-
-# Colunas que você quer manter
-colunas_uteis = [
-    'title',
-    'release_date',
-    'genres_names',
-    'vote_average',
-    'overview',
-    'runtime',
-    'original_language',
-    'budget',
-    'revenue'
-]
+CSV_PATH_LOCAL = "dados/movies_catalog_clean.csv"
 
 def carregar_dados():
-    df = pd.read_csv(CSV_PATH)
+    filmes = []
+    with open(CSV_PATH_LOCAL, newline='', encoding='utf-8') as csvfile:
+        leitor = csv.DictReader(csvfile)
+        for linha in leitor:
+            # Convertendo campos numéricos para tipos corretos
+            linha['vote_average'] = float(linha['vote_average']) if linha['vote_average'] else 0.0
+            linha['runtime'] = int(float(linha['runtime'])) if linha['runtime'] else 0
+            linha['budget'] = int(float(linha['budget'])) if linha['budget'] else 0
+            linha['revenue'] = int(float(linha['revenue'])) if linha['revenue'] else 0
 
-    # Filtra colunas úteis
-    df = df[colunas_uteis]
+            # Convertendo gêneros para lista
+            linha['genres_names'] = [g.strip() for g in linha['genres_names'].split(",")]
 
-    # Remove valores ausentes
-    df = df.dropna(subset=['title', 'release_date'])
-
-    # Converte para lista de dicionários
-    catalogo = df.to_dict(orient='records')
-
-    return catalogo
+            filmes.append(linha)
+    return filmes
