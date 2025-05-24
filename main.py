@@ -1,5 +1,6 @@
 from catalogo import carregar_dados
 from cadastro import cadastrar_filmes  
+from listar import listar_fimes_detalhado
 
 def menu():
     print("===============================")
@@ -20,7 +21,8 @@ def main():
     while True:
         opcao = menu()
         if opcao == '1':
-            # listar_filmes(catalogo)
+            print(f"Lista de filmes: ")
+            print(listar_filmes_detalhado(catalogo))
             pass
         elif opcao == '2':
             # buscar_filme(catalogo)
