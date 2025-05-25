@@ -41,9 +41,9 @@ A estrutura do código se inicia com a importação de alguns elementos importan
 - CSV_PATH_LOCAL: constante que define o caminho do arquivo de origem dos dados (não utilizada diretamente no código apresentado).
 
 Já com a função listar_filmes_detalhado temos a principal funcionalidade do código. Essa função recebe uma lista de filmes e imprime as informações recebidas de maneira detalhada e organizada.
-    Estrutura da função:
+Estrutura da função:
 
-    - Verificação de lista vazia: caso não haja filmes, uma mensagem é exibida ao usuário.
+- Verificação de lista vazia: caso não haja filmes, uma mensagem é exibida ao usuário.
     def listar_filmes_detalhado(filmes):
 
     //   if not filmes:
