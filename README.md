@@ -44,14 +44,15 @@ Já com a função listar_filmes_detalhado temos a principal funcionalidade do c
 Estrutura da função:
 
 - Verificação de lista vazia: caso não haja filmes, uma mensagem é exibida ao usuário.
-    def listar_filmes_detalhado(filmes):
 
-    //   if not filmes:
+      def listar_filmes_detalhado(filmes):
+        if not filmes:
             print("Nenhum filme cadastrado para listar.")
             return
 
-    - Dicionário de idiomas: a função utiliza um dicionário idiomas_map para converter siglas de idiomas em nomes completos (por exemplo, 'en' → 'English') com intuito de trazer uma interface mais compreensível para o usuário.
-    //  idiomas_map = {
+- Dicionário de idiomas: a função utiliza um dicionário idiomas_map para converter siglas de idiomas em nomes completos (por exemplo, 'en' → 'English') com intuito de trazer uma interface mais compreensível para o usuário.
+
+        idiomas_map = {
             'en': 'English', ...
         }
     
@@ -66,8 +67,8 @@ Laço de repetição: percorre a lista de filmes e imprime os seguintes dados:
 - Linguagem original (convertida com base na sigla)
 - Orçamento e receita (formatados com separadores de milhar)
 
-//  print("--- Filmes Cadastrados ---")
-    for i, filme in enumerate(filmes):
+      print("--- Filmes Cadastrados ---")
+        for i, filme in enumerate(filmes):
         print(f"\n--- Filme {i+1}: {filme['title']} ---")
         print(f"Título: {filme.get('title', 'Título Desconhecido')}")
         print(f"Ano de Lançamento: {filme.get('release_date', 'N/A')}")
@@ -87,6 +88,10 @@ Por fim o trecho if __name__ == "__main__" garante que o código será executado
 
 - Os dados dos filmes são carregados via carregar_dados.
 - A função listar_filmes_detalhado é chamada para exibir as informações dos filmes.
+  
+        if __name__ == "__main__":
+            catalogo_filmes = carregar_dados()
+            listar_filmes_detalhado(catalogo_filmes)
 
 ### Busca
 
