@@ -1,5 +1,6 @@
 from catalogo import carregar_dados
-from cadastro import cadastrar_filmes  
+from cadastro import cadastrar_filmes
+from ordenacao import ordenar_catalogo
 
 def menu():
     print("===============================")
