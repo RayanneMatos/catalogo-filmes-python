@@ -5,26 +5,32 @@ Projeto desenvolvido para a disciplina de **Estrutura de Dados** do curso de **C
 ---
 
 ## Objetivo
-Criar um sistema simples em Python para cadastrar, listar, buscar e ordenar filmes, utilizando conceitos fundamentais de estrutura de dados.
+O principal objetivo deste projeto é desenvolver um sistema de controle de catálogo de filmes utilizando a linguagem Python, com um foco didático e prático na aplicação de Estruturas de Dados e Algoritmos fundamentais. Mais do que apenas criar um gerenciador de filmes, o sistema serve como um laboratório para:
+
+- Consolidar o aprendizado: Aplicar e aprofundar os conhecimentos teóricos adquiridos na disciplina de Estrutura de Dados, transformando conceitos abstratos como listas, dicionários, buscas e ordenações em funcionalidades tangíveis.
+- Desenvolver habilidades de programação: Praticar a escrita de código limpo, modularizado e eficiente em Python, explorando boas práticas de organização e design de software.
+- Demonstrar a relevância de algoritmos: Ilustrar como diferentes algoritmos de busca (e.g., linear) e ordenação (e.g., Bubble Sort, Quick/Merge Sort) impactam o desempenho e a organização de grandes volumes de dados, permitindo a comparação e análise de suas complexidades.
+- Criar uma ferramenta funcional: Construir um sistema interativo e útil que permite ao usuário cadastrar, visualizar, buscar e organizar informações sobre filmes de maneira eficiente, evidenciando a aplicabilidade dos conceitos em cenários reais.
+- Em suma, este projeto busca ser uma ponte entre a teoria e a prática, oferecendo uma experiência valiosa na construção de um sistema funcional que evidencia a importância da escolha e implementação correta de estruturas de dados e algoritmos para a otimização de operações em um catálogo de informações.
 
 ---
 
 ##  Conceitos abordados
-- Listas e dicionário
-- Busca Linear
-- Ordenação (Bubble Sort e Quick/Merge Sort)
-- Modularização em Python
-- Entrada/saída de dados
-- Menu interativo
-
+- Listas e Dicionários: Utilização de estruturas de dados básicas para armazenar e organizar as informações dos filmes.
+- Busca Linear: Implementação de algoritmos de busca para localizar filmes específicos dentro do catálogo.
+- Algoritmos de Ordenação (Bubble Sort e Quick/Merge Sort): Aplicação e comparação de diferentes métodos de ordenação para organizar o catálogo de filmes de diversas maneiras.
+- Modularização em Python: Organização do código em módulos separados para melhor manutenibilidade e reusabilidade.
+- Entrada/Saída de Dados: Manipulação de dados inseridos pelo usuário e exibição de resultados.
+- Menu Interativo: Desenvolvimento de uma interface de linha de comando amigável para interação com o usuário.
 ---
 
 ##  Funcionalidades
-- Cadastro de filmes
-- Listagem de todos os filmes cadastrados
-- Busca por título, diretor ou gênero
-- Ordenação por título, ano de lançamento ou nota
-- Menu interativo no terminal
+O sistema oferece as seguintes funcionalidades principais:
+- Cadastro de Filmes: Adição de novos filmes ao catálogo, com informações como título, diretor, ano de lançamento, gênero e nota.
+- Listagem de Filmes: Visualização de todos os filmes cadastrados.
+- Busca de Filmes: Pesquisa por filmes utilizando critérios como título, diretor ou gênero.
+- Ordenação de Filmes: Organização do catálogo por título, ano de lançamento ou nota (ascendente/descendente).
+- Menu Interativo no Terminal: Navegação intuitiva entre as opções do sistema através de um menu baseado em texto.
 
 ### Cadastro
 
@@ -101,7 +107,12 @@ Por fim o trecho if __name__ == "__main__" garante que o código será executado
 
 ---
 
-## ▶ Como executar
+## Como executar
+Para executar este projeto em sua máquina, siga os passos abaixo:
 
+- Pré-requisitos: Certifique-se de ter o Python 3 instalado em seu ambiente.
+- Clone o Repositório:
+  git clone https://github.com/RayanneMatos/catalogo-filmes-python.git
+  cd catalogo-filmes-python
 ```bash
-python main.py
+python main.py 
