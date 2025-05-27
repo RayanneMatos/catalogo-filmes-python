@@ -1,7 +1,5 @@
  # Módulo para buscas
 
-# busca.py
-
 def buscar_por_titulo(catalogo, titulo):
     """Busca linear por título (case insensitive)."""
     resultados = []

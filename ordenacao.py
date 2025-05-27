@@ -37,7 +37,7 @@ def extrair_valor(filme, chave):
         try:
             return int(data[:4]) if data else 0
         except ValueError:
-            return 0  # ou algum valor que represente "sem data"
+            return 0
 
     elif chave == "nota":
         try:
