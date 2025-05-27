@@ -1,4 +1,6 @@
-# Módulo para ordenação
+# Módulo para ordenação usando Quick Sort
+from listar import listar_filmes_detalhado
+
 
 def quick_sort(lista, chave, inicio=0, fim=None):
     if fim is None:
@@ -14,7 +16,6 @@ def particao(lista, chave, inicio, fim):
     i = inicio - 1
 
     for j in range(inicio, fim):
-        # Compara usando a chave, para 'release_date' extrair o ano
         if comparar(lista[j], pivot, chave):
             i += 1
             lista[i], lista[j] = lista[j], lista[i]
@@ -23,22 +24,37 @@ def particao(lista, chave, inicio, fim):
     return i + 1
 
 def comparar(a, b, chave):
-    # Extrai valor comparável conforme chave
     va = extrair_valor(a, chave)
     vb = extrair_valor(b, chave)
     return va <= vb
 
 def extrair_valor(filme, chave):
     if chave == "title":
-        return filme["title"].lower()
+        return filme.get("title", "").lower()
+
     elif chave == "ano":
-        # Extrai ano do formato 'YYYY-MM-DD'
-        return int(filme["release_date"][:4])
+        data = filme.get("release_date", "")
+        try:
+            return int(data[:4]) if data else 0
+        except ValueError:
+            return 0  # ou algum valor que represente "sem data"
+
     elif chave == "nota":
-        return float(filme["vote_average"])
-    else:
-        # Caso chave inválida, ordena por título como padrão
-        return filme["title"].lower()
+        try:
+            return float(filme.get("vote_average", 0.0))
+        except ValueError:
+            return 0.0
+
+    # Chave inválida: ordena por título como fallback
+    return filme.get("title", "").lower()
 
 def ordenar_catalogo(catalogo, chave_ordenacao):
+    if not catalogo:
+        print("⚠️ Catálogo vazio. Nada a ordenar.")
+        return
+
+    if chave_ordenacao not in ["title", "ano", "nota"]:
+        print(f"⚠️ Chave de ordenação '{chave_ordenacao}' inválida. Ordenando por título.")
+        chave_ordenacao = "title"
+
     quick_sort(catalogo, chave_ordenacao)
