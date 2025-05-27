@@ -1,7 +1,11 @@
 from catalogo import carregar_dados
-from cadastro import cadastrar_filmes
+from listar import listar_filmes_detalhado
+from utils import menu_busca
+from busca import buscar_por_titulo, buscar_por_genero
+from utils import menu_ordenacao
 from ordenacao import ordenar_catalogo
-from listar import listar_fimes_detalhado
+from cadastro import cadastrar_filmes
+
 
 
 def menu():
@@ -9,11 +13,10 @@ def menu():
     print("     CATÁLOGO DE FILMES 🎬")
     print("===============================\n")
     print("1. Listar todos os filmes")
-    print("2. Buscar filme por título")
+    print("2. Buscar filme")
     print("3. Ordenar filmes")
-    print("4. Ver detalhes de um filme")
-    print("5. Cadastrar novo filme")
-    print("6. Sair")
+    print("4. Cadastrar novo filme")
+    print("5. Sair")
 
     opcao = input("\nEscolha uma opção: ")
     return opcao
@@ -27,17 +30,19 @@ def main():
             print(listar_filmes_detalhado(catalogo))
             pass
         elif opcao == '2':
-            # buscar_filme(catalogo)
+            menu_busca(catalogo)
+
             pass
+
         elif opcao == '3':
-            # ordenar_filmes(catalogo)
+            menu_ordenacao(catalogo)
             pass
+        
         elif opcao == '4':
-            # ver_detalhes(catalogo)
-            pass
+           catalogo = cadastrar_filmes(catalogo)
+           pass
+
         elif opcao == '5':
-            catalogo = cadastrar_filmes(catalogo)
-        elif opcao == '6':
             print("Saindo do programa. Até logo!")
             break
         else:
