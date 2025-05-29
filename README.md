@@ -298,8 +298,114 @@ Esta função auxiliar é o coração do Quick Sort, responsável por rearranjar
 - Manipulação de Listas In-place: A ordenação é realizada diretamente na lista fornecida, sem a criação de cópias adicionais para a lista inteira, o que otimiza o uso de memória.
 - Flexibilidade de Chaves: A função extrair_valor permite que o mesmo algoritmo de ordenação seja aplicado a diferentes tipos de dados (strings para títulos, inteiros para ano, floats para nota), mostrando a adaptabilidade do algoritmo.
 
-
 ### Menu
+O módulo main.py serve como o ponto de entrada e orquestrador principal do sistema de controle de catálogo de filmes. Ele é responsável por gerenciar o fluxo de execução do programa, apresentar o menu interativo ao usuário e delegar as funcionalidades específicas (listagem, busca, ordenação) aos seus respectivos módulos.
+
+#### Estrutura e Importações
+- O módulo começa com uma série de importações, demonstrando a arquitetura modular do projeto, onde cada funcionalidade é encapsulada em um arquivo Python separado.
+
+        from catalogo import carregar_dados
+        from listar import listar_filmes_detalhado
+        from utils import menu_busca, menu_ordenacao
+        ...
+
+- from catalogo import carregar_dados: Importa a função carregar_dados, essencial para inicializar o catálogo de filmes ao carregar os dados de uma fonte externa.
+- from listar import listar_filmes_detalhado: Traz a função para exibir de forma formatada e detalhada todos os filmes presentes no catálogo.
+- from utils import menu_busca: Importa o sub-menu específico para as opções de busca.
+- from busca import buscar_por_titulo, buscar_por_genero: Importa as funções que executam a lógica de busca por título e gênero. Embora menu_busca provavelmente as chame internamente, a importação direta aqui garante sua disponibilidade caso sejam necessárias em outras partes do main.py ou para clareza.
+- from utils import menu_ordenacao: Importa o sub-menu dedicado às opções de ordenação.
+- from ordenacao import ordenar_catalogo: Importa a função que aplica os algoritmos de ordenação (como o Quick Sort) ao catálogo.
+- from cadastro import cadastrar_filmes: Permite a adição de novos filmes ao sistema.
+
+#### Função menu()
+Esta função é a interface primária com o usuário, responsável por exibir as opções disponíveis no sistema.
+
+##### Funcionamento:
+Imprime um cabeçalho visual para o "CATÁLOGO DE FILMES";
+
+ Apresenta uma lista numerada de funcionalidades:
+- Listar todos os filmes;
+- Buscar filme;
+- Ordenar filmes;
+- Cadastrar novo filme;
+- Sair;
+  
+Solicita ao usuário que escolha uma opção através da entrada de teclado (input);
+
+Retorna a opção escolhida pelo usuário como uma string.
+
+        ...
+          def menu():
+            print("===============================")
+            print("     CATÁLOGO DE FILMES 🎬")
+            print("===============================\n")
+            print("1. Listar todos os filmes")
+            print("2. Buscar filme")
+            print("3. Ordenar filmes")
+            print("4. Sair")
+        
+            opcao = input("\nEscolha uma opção: ")
+            return opcao
+                ...
+
+#### Inicialização:
+catalogo = carregar_dados(): Ao iniciar, carrega todos os dados dos filmes para a variável catalogo. Esta é a lista principal de filmes que será manipulada durante a execução.
+
+Loop Principal (while True): Entra em um loop infinito que mantém o programa em execução até que o usuário decida sair.
+
+A cada iteração, a função menu() é chamada para exibir as opções e obter a escolha do usuário.
+
+        ...
+        def main():
+    catalogo = carregar_dados()
+
+    while True:
+        opcao = menu()
+        ...
+Uma estrutura if/elif/else verifica a opcao escolhida:
+- opcao == '1' (Listar filmes): Chama listar_filmes_detalhado(catalogo) para mostrar todos os filmes.
+- opcao == '2' (Buscar filme): Delega a lógica de busca ao menu_busca(catalogo). Isso sugere que menu_busca lida com a escolha do critério de busca (título/gênero) e chama as funções buscar_por_titulo ou buscar_por_genero internamente.
+- opcao == '3' (Ordenar filmes): Delega a lógica de ordenação ao menu_ordenacao(catalogo). Similarmente, menu_ordenacao deve guiar o usuário na escolha do critério de ordenação e, então, chamar ordenar_catalogo.
+- opcao == '4' (Cadastrar novo filme): Chama cadastrar_filmes(catalogo). É importante notar que o retorno desta função (catalogo = cadastrar_filmes(catalogo)) sugere que a função de cadastro pode retornar o catálogo atualizado, o que é uma boa prática para garantir que as modificações (novos filmes) sejam persistidas na lista principal em memória.
+- opcao == '5' (Sair): Imprime uma mensagem de despedida e utiliza break para sair do loop while True, encerrando o programa.
+- else (Opção inválida): Para qualquer outra entrada, informa ao usuário que a opção é inválida e o menu é exibido novamente.
+
+        ...
+          
+        if opcao == '1':
+            print("Lista de filmes:")
+            print(listar_filmes_detalhado(catalogo))
+
+        elif opcao == '2':
+            menu_busca(catalogo)
+
+        elif opcao == '3':
+            menu_ordenacao(catalogo)
+
+        elif opcao == '4':
+            print("Saindo do programa. Até logo!")
+            break
+
+        else:
+            print("Opção inválida! Tente novamente.")
+          ...
+Bloco de Execução Principal (if __name__ == "__main__":)
+
+Este bloco é um padrão comum em Python que garante que a função main() seja chamada e executada apenas quando o script main.py for executado diretamente. Se este arquivo for importado como um módulo em outro script, a função main() não será executada automaticamente, prevenindo efeitos colaterais indesejados.
+
+        ...
+        if __name__ == "__main__":
+            main()        
+            ...
+#### Conceitos de Programação
+
+O módulo main.py ilustra vários conceitos importantes de engenharia de software:
+- Modularização: Evidente pela importação de diversas funções de outros módulos, o que melhora a organização, reusabilidade e manutenibilidade do código.
+- Interface de Usuário (CLI): Implementa uma interface de linha de comando simples e interativa, permitindo que o usuário navegue pelas funcionalidades.
+- Loop de Eventos: O loop while True na função main atua como um loop de eventos básico, aguardando a entrada do usuário e respondendo a ela.
+- Delegação de Responsabilidades: O main.py delega a lógica complexa (como a execução de buscas e ordenações) a módulos específicos, mantendo o controle principal limpo e focado na orquestração.
+- Tratamento de Entrada: Embora simples, a verificação de opcao e o tratamento de "Opção inválida" são exemplos básicos de validação de entrada do usuário.
+- Este módulo une todas as partes desenvolvidas em um aplicativo funcional e interativo.
 
 ---
 
