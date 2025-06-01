@@ -1,4 +1,4 @@
-# Catálogo de Filmes – Estrutura de Dados
+# Catálogo de Filmes em Python com Aplicação de Estruturas de Dados e Algoritmos de Ordenação e Busca
 
 Projeto desenvolvido para a disciplina de **Estrutura de Dados** do curso de **Ciência da Computação**, com foco em aplicação prática de algoritmos e estruturas como listas, buscas e ordenações.
 
@@ -12,6 +12,12 @@ O principal objetivo deste projeto é desenvolver um sistema de controle de cat�
 - Demonstrar a relevância de algoritmos: Ilustrar como diferentes algoritmos de busca (e.g., linear) e ordenação (e.g., Bubble Sort, Quick/Merge Sort) impactam o desempenho e a organização de grandes volumes de dados, permitindo a comparação e análise de suas complexidades.
 - Criar uma ferramenta funcional: Construir um sistema interativo e útil que permite ao usuário cadastrar, visualizar, buscar e organizar informações sobre filmes de maneira eficiente, evidenciando a aplicabilidade dos conceitos em cenários reais.
 - Em suma, este projeto busca ser uma ponte entre a teoria e a prática, oferecendo uma experiência valiosa na construção de um sistema funcional que evidencia a importância da escolha e implementação correta de estruturas de dados e algoritmos para a otimização de operações em um catálogo de informações.
+
+---
+
+## Delimitações do Projeto
+Este sistema foi desenvolvido com foco nas funcionalidades de listagem, ordenação e busca de dados em um catálogo de filmes, como forma de aplicar e consolidar o conhecimento em estruturas de dados.
+Funções como cadastro, edição e remoção de registros não foram implementadas, pois não faziam parte dos requisitos definidos para este trabalho. A escolha permitiu aprofundar a compreensão de algoritmos de ordenação e busca, priorizando clareza e eficiência no tratamento de dados.
 
 ---
 
@@ -406,6 +412,38 @@ O módulo main.py ilustra vários conceitos importantes de engenharia de softwar
 - Delegação de Responsabilidades: O main.py delega a lógica complexa (como a execução de buscas e ordenações) a módulos específicos, mantendo o controle principal limpo e focado na orquestração.
 - Tratamento de Entrada: Embora simples, a verificação de opcao e o tratamento de "Opção inválida" são exemplos básicos de validação de entrada do usuário.
 - Este módulo une todas as partes desenvolvidas em um aplicativo funcional e interativo.
+
+---
+## Testes Automatizados
+Neste projeto, optamos por não implementar testes automatizados com bibliotecas como pytest, considerando o escopo limitado e o foco principal nas funcionalidades de busca, ordenação e manipulação de dados.
+
+A validação das funcionalidades foi feita por meio de testes manuais, utilizando diferentes entradas nos arquivos .py, e verificando os resultados exibidos no console.
+
+---
+
+## Internacionalização dos Dados
+Optamos por manter os dados no padrão original em inglês, conforme extraídos do arquivo original do Kaggle, incluindo campos como:
+
+- Nomes de gêneros (genres_names)
+- Idiomas (original_language)
+- Datas no formato americano (YYYY-MM-DD)
+
+Essa decisão foi tomada visando preservar a integridade e compatibilidade com o dataset original, além de reduzir a complexidade de implementação, já que o foco principal do projeto é a aplicação de técnicas de estrutura de dados, como busca, ordenação e manipulação de arquivos CSV.
+
+Em projetos futuros, a aplicação de um dicionário de tradução e a formatação regional dos dados poderão ser considerados como uma melhoria para fins de internacionalização e melhor experiência para o usuário final.
+
+---
+
+## Sugestões de Melhorias Futuras
+Para aprimorar o projeto e torná-lo mais robusto e completo, destacamos algumas melhorias que podem ser implementadas em futuras versões:
+
+- Internacionalização dos dados: Atualmente, os dados estão mantidos no padrão original em inglês para preservar a integridade do dataset e facilitar a manipulação. Em versões futuras, pode-se adicionar um dicionário de tradução para adaptar gêneros, idiomas e outras informações ao português, melhorando a usabilidade para usuários locais.
+- Implementação completa do CRUD: O projeto atualmente foca nas funções de leitura e manipulação dos dados, mas a inclusão das operações de criação, atualização e exclusão (Create, Read, Update, Delete) permitirá uma gestão mais completa do catálogo de filmes.
+- Diagrama de módulos ou fluxograma: A inclusão de diagramas que representem a arquitetura do sistema e o fluxo das operações ajudaria na documentação e na compreensão geral do projeto.
+- Exibição de estatísticas: Funcionalidades que mostrem informações relevantes, como número de filmes por gênero, média de duração, orçamento médio, entre outras, agregam valor à análise dos dados.
+- Exportação de dados filtrados: Permitir que o usuário exporte resultados filtrados ou modificados em formatos como CSV ou JSON é uma funcionalidade que aumentaria a praticidade e a aplicabilidade do sistema.
+
+Essas melhorias visam tornar o projeto mais completo, funcional e amigável para o usuário final, além de ampliar seu potencial acadêmico e prático.
 
 ---
 
