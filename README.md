@@ -1,6 +1,7 @@
 # Catálogo de Filmes em Python com Aplicação de Estruturas de Dados e Algoritmos de Ordenação e Busca
 
-Projeto desenvolvido para a disciplina de **Estrutura de Dados** do curso de **Ciência da Computação**, com foco em aplicação prática de algoritmos e estruturas como listas, buscas e ordenações.
+Projeto desenvolvido para a disciplina de Estrutura de Dados do curso de Ciência da Computação, com foco na aplicação prática de algoritmos e estruturas fundamentais, como listas, técnicas de busca e métodos de ordenação.
+Trabalho realizado pelos alunos Asafe Rodrigues Marinho, Mauro Kauã de Lima de Souza e Rayanne Nathália de Souza Matos.
 
 ---
 
